@@ -22,3 +22,12 @@ dependencies {
 tasks.named<Test>("test") {
     useJUnitPlatform()
 }
+
+configure<GradlePluginDevelopmentExtension> {
+    plugins {
+        create("example") {
+            id = "example"
+            implementationClass = "org.example.TestPlugin"
+        }
+    }
+}
