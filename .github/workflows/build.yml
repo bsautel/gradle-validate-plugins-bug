@@ -1,0 +1,16 @@
+name: Build
+on: [push]
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+      - name: Install Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Gradle Version
+        run: ./gradlew --version
+      - name: Build
+        run: ./gradlew build
